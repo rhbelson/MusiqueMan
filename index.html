@@ -170,7 +170,10 @@
                 <br>
                 <img src="img/rnn2.jpg" width="30%" align="middle" alt="">
                 <br>
-                However, to integrate pattern recognition over time (an integral component to developing)
+                However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network effectively has a time axis and note axis, connecting inputs to outputs and recurrent connections from one axis to another.
+                <br>
+                <br>
+                <a href="#rnn_cont" class="page-scroll btn btn-default btn-xl sr-button">Implementation Details</a> 
 </p>
                 </div>
             </div>
@@ -179,12 +182,37 @@
 
 
 
+
+<section class="bg-primary" id="rnn_cont">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">Deep Dive into Our Biaxial Recurrent Neural Network</h2>
+                    <hr class="light">
+                    <p class="text-faded">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
+                    <ol class="text-faded">
+                  <li align="left">Position: </li>
+                  <li align="left">Pitchlass</li>
+                  <li align="left">Previous Vicinity</li>
+                  <li align="left">Previous Context</li>
+                  <li align="left">Beat</li>
+                </ol>
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="img/bach.jpg" width="50%" class="img-responsive" alt="">
+                        <img src="img/bach.jpg" width="80%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -199,7 +227,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/multitrack.jpg" class="img-responsive" width="50%" alt="">
+                        <img src="img/multitrack.jpg" class="img-responsive" width="80%" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -214,7 +242,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/chopin.jpg" width="50%" class="img-responsive" alt="">
+                        <img src="img/chopin.jpg" width="80%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -230,7 +258,7 @@
 
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="img/beatles.jpg" width="50%" class="img-responsive" alt="">
+                        <img src="img/beatles.jpg" width="80%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -246,7 +274,7 @@
 
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="img/bruno.jpg" width="50%" class="img-responsive" alt="">
+                        <img src="img/bruno.jpg" width="80%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -262,7 +290,7 @@
 
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/house.jpg" width="50%" class="img-responsive" alt="">
+                        <img src="img/house.jpg" width="80%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
