@@ -151,7 +151,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">How does the Biaxial Recurrent Neural Network Work?</h2>
                     <hr class="light">
-                    <p class="text-faded">Drawing from the techniques of convolution neural networks coupled with long short-term memory layers, our recurrent neural network learns to predict at a given time step of a piece of music, which notes will be played (among other paramters such as duration).<br>
+                    <p>Drawing from the techniques of convolution neural networks coupled with long short-term memory layers, our recurrent neural network learns to predict at a given time step of a piece of music, which notes will be played (among other paramters such as duration).<br>
 
                     In basic recurrent neural networks, each output of a particular hidden layer, beyond the weighted sum of the inputs, is computed and fed back to itself as an additional input. Thus, each node of a hidden layer is derived by the outputs of the current layer from the last time step and the inputs of the previous layer, as seen in the figure below:
                     <br>
@@ -189,7 +189,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Deep Dive into Our Biaxial Recurrent Neural Network</h2>
                     <hr class="light">
-                    <p align="left" class="text-faded">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
+                    <p align="left">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
                     <ol class="text-faded">
                   <li align="left">Position: Current pitch of a particular note, ranging from 0-127 (MIDI note value) </li>
                   <li align="left">Pitchlass: Consisting of 12 values, one per pitchclass, incrementing by 1 for each value (A will be 0, A# will be 1.... G# will be 11). In this assumption, Johnson posits that this will allow selection of "more common chords." However, this assumption is incredibly naive, given his assertion that is is necessarily "more common to have a C major chord than E-flat major chord." In certain iterations of our model, we adjusted this paramter to reflect a different weighting of commonality of various chords. </li>
@@ -197,10 +197,26 @@
                   <li align="left">Previous Context: Similar to Previous Vicinity paramter, but condensed to 1 octave, number of times a certain pitch class was played across any octave is reported across the 12 values.</li>
                   <li align="left">Beat: Using a 4 row binary representation, one for each beat of the 4/4 time signature, each 1 represents the "note-on" MIDI property for each timestep.</li>
                 </ol>
-                <p align="left" class="text-faded">Now, to break down the two LSTM stacks:<br>
+                <p align="left" >Now, to break down the two LSTM stacks:<br>
                 First Hidden LSTM Stack: LSTMs that have reccurent connections along time axis, where the last layer outputs a note state representing any particular time pattern</p> <br>
-                <p align="left" class="text-faded">Second Hidden LSTM Stack: LSTMs that have recurrent connections along note axis, whos last layer outputs 2 values. The first value, Play Probability, indicates the probability that a particular note should be chosen to be played. The second value, Articulate Probability (applies only for notes that have already been played in prior time step), is probability the note should last longer, say, from a sixteenth note to an eighth note. </p>
+                <p align="left" >Second Hidden LSTM Stack: LSTMs that have recurrent connections along note axis, whos last layer outputs 2 values. The first value, Play Probability, indicates the probability that a particular note should be chosen to be played. The second value, Articulate Probability (applies only for notes that have already been played in prior time step), is probability the note should last longer, say, from a sixteenth note to an eighth note. </p>
                 <h2 class="section-heading">Model Software Implementation </h2>
+                <p align="left" >Having studied a variety of machine learning software this quarter, the biaxial network uses Theano, a python library developed by computer scientists at Université de Montréal. This software compiles the network to run most efficiently by making the code GPU-optimized.
+                <br>
+                
+                </p>
+                <ol> Training Process Stepwise Process:
+                  <li align="left">Randomly select batch of short music segments from our dataset, and feed into biaxial RNN</li>
+                  <li align="left">Take output probabilities from second hidden LSTM stack, and calculate cross-entropy (i.e., likelihood of generating particular output) </li>
+                  <li align="left">Take probabilities and use optimizer (AdaDelta) to calculate weights </li>
+                  <li align="left">Batch all notes together and train time-axis layers</li>
+                  <li align="left">Do the reverse: batch all times together and train the note-axis layers</li>
+                </ol>
+                <h2 class="section-heading">Avoiding Overfitting: Hyperparameter Adjustments </h2>
+                <p align="left">Applying dropout to our RNN is a way of removing hidden nodes (by zeroing output) at each layer at random, as a means to avoid overfitting and in turn promote specializing, or rather "unique" music composition. <br>
+                *Note: We would expect temperature adjustments to behave in a similar way. If temperature was excessively low, the distribution would be less uniform, and the composition would be extremely repetitive. On the other hand, as the temperature grows increasingly high, the the distribution would be more uniform, leading to increasingly less-similar but less coherent (in terms of aurally compelling "reproductions" of a given dataset).
+                
+                </p>
 </p>
                 </div>
             </div>
