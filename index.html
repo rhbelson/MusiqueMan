@@ -136,26 +136,62 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
                         <h3>Breadth of Project</h3>
-                        <p class="text-muted">Unlike Daniel Johnson, we sought to apply his neural network across a variety of styles, comparing its capcity to produce aurally compelling music.</p>
+                        <p class="text-muted">Unlike Daniel Johnson, we sought to apply his neural network across a variety of styles, comparing its capcity to produce aurally compelling music. Beginning first with the classical genre, drawing from the compositions of Bach and Chopin, we then explored other genres such as classical rock, pop, and electronic and house music.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+
+<section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading">How does the Biaxial Recurrent Neural Network Work?</h2>
+                    <hr class="light">
+                    <p class="text-faded">Drawing from the techniques of convolution neural networks coupled with long short-term memory layers, our recurrent neural network learns to predict at a given time step of a piece of music, which notes will be played (among other paramters such as duration).<br>
+
+                    In basic recurrent neural networks, each output of a particular hidden layer, beyond the weighted sum of the inputs, is computed and fed back to itself as an additional input. Thus, each node of a hidden layer is derived by the outputs of the current layer from the last time step and the inputs of the previous layer, as seen in the figure below:
+                    <br>
+                    <img src="img/rnn1.jpg" width="30%" align="middle" alt="">
+                    <br>
+                    However, to solve the short-term nature of a value output in a given time step (i.e., for a value to be "saved in memory", an output needs to be an output once more in the next time step rather than becoming another input), Long Short-Term Memory (LSTM) nodes includes a cell for outputs from prior time steps. This cell can be modified (e.g., addeded, subtracted, etc.) at each time step.
+
+                    For this neural network adapted specifically to generate pieces of music, unique properties of this network included:
+                <ol class="text-faded">
+                  <li align="left">Note and Time Invariance: For the generated music to be transposable and composed to an indefinite length, the network was constructed to be identical for each note and time step </li>
+                  <li align="left">Vertical and Horizontal Motion: Compositions would support polyphonic music, with multiple notes at a given time step</li>
+                  <li align="left">Repetition as Integral Compositional Element: Often times, western music and its resulting genres are structured by repeition. Thus, the network must allow repetition of the same note.</li>
+                </ol>
+                But how can we reconcile the relative strengths of convolutional neural networks with LSTM?<br>
+                If our convolutional kernel is now the recurrent neural network itself, each note would have its own neural network, composed of memory cells (LSTM), with each layer receiving 12 inputs (1 for each chroma/half step). This stack of recurrent neural networks (one for each note) can be represented in the visual below:
+                <br>
+                <img src="img/rnn2.jpg" width="30%" align="middle" alt="">
+                <br>
+                However, to integrate pattern recognition over time (an integral component to developing)
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                        <img src="img/bach.jpg" width="50%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Genre #1
+                                    Classical Music Weakness: Multitracking
                                 </div>
                                 <div class="project-name">
-                                    Bach Chorales
+                                    Dataset: Bach Fugues and Chorales
                                 </div>
                             </div>
                         </div>
@@ -163,14 +199,14 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                        <img src="img/multitrack.jpg" class="img-responsive" width="50%" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Genre #2
+                                    Classical Music Strength: Single Track
                                 </div>
                                 <div class="project-name">
-                                    Classic Rock
+                                    Dataset: More Comprehensive Bach Dataset
                                 </div>
                             </div>
                         </div>
@@ -178,66 +214,69 @@
                 </div>
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                        <img src="img/chopin.jpg" width="50%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Name the Composer?
+                                    Classical Music: Expanding Composer Breadth via Fryderyk Chopin
                                 </div>
                                 <div class="project-name">
-                                    Composing music using Datasets comprised of multiple composers
+                                    Can RNNs create distinctive styles across composers within genres?
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                        <img src="img/beatles.jpg" width="50%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Pie in the Sky Feature 4
+                                    Classic Rock: RNN and the Beatles
                                 </div>
                                 <div class="project-name">
-                                    Compelling description about our final hooray.
+                                    Dataset: 4 Albums of the Beatles
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <!-- <div class="col-lg-4 col-sm-6">
+
+                <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                        <img src="img/bruno.jpg" width="50%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Top 40 Hits meets RNN
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Dataset: Compilation of Top 40 charts from past 10 years
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
+
                 <div class="col-lg-4 col-sm-6">
                     <a href="img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                        <img src="img/house.jpg" width="50%" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Who Needs Melody Anyways? A Rhythmic Approach to RNN
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Dataset: Compilation of house and electronic music
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-        </div> -->
+        </div>
     </section>
 
     <aside class="bg-dark">
@@ -259,7 +298,7 @@
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
+                    <p>317-775-0018</p>
                 </div>
                 <div class="col-lg-4 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
