@@ -173,7 +173,7 @@
                 However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network effectively has a time axis and note axis, connecting inputs to outputs and recurrent connections from one axis to another.
                 <br>
                 <br>
-                <a id="rnncontbutt" class="page-scroll btn btn-default btn-xl sr-button">Implementation Details</a> 
+                <a id="rnncontbutt" class="page-scroll btn btn-default btn-xl sr-button">Implementation Details (Cont.)</a> 
 </p>
                 </div>
             </div>
@@ -191,12 +191,16 @@
                     <hr class="light">
                     <p align="left" class="text-faded">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
                     <ol class="text-faded">
-                  <li align="left">Position: </li>
-                  <li align="left">Pitchlass</li>
-                  <li align="left">Previous Vicinity</li>
-                  <li align="left">Previous Context</li>
-                  <li align="left">Beat</li>
+                  <li align="left">Position: Current pitch of a particular note, ranging from 0-127 (MIDI note value) </li>
+                  <li align="left">Pitchlass: Consisting of 12 values, one per pitchclass, incrementing by 1 for each value (A will be 0, A# will be 1.... G# will be 11). In this assumption, Johnson posits that this will allow selection of "more common chords." However, this assumption is incredibly naive, given his assertion that is is necessarily "more common to have a C major chord than E-flat major chord." In certain iterations of our model, we adjusted this paramter to reflect a different weighting of commonality of various chords. </li>
+                  <li align="left">Previous Vicinity: Consisting of 50 values, or rather 3 octaves span of 12 pitch classes, each value is given a 1 if that pitch was present in the last timestep and a zero otherwise. </li>
+                  <li align="left">Previous Context: Similar to Previous Vicinity paramter, but condensed to 1 octave, number of times a certain pitch class was played across any octave is reported across the 12 values.</li>
+                  <li align="left">Beat: Using a 4 row binary representation, one for each beat of the 4/4 time signature, each 1 represents the "note-on" MIDI property for each timestep.</li>
                 </ol>
+                <p align="left" class="text-faded">Now, to break down the two LSTM stacks:<br>
+                First Hidden LSTM Stack: LSTMs that have reccurent connections along time axis, where the last layer outputs a note state representing any particular time pattern</p> <br>
+                <p align="left" class="text-faded">Second Hidden LSTM Stack: LSTMs that have recurrent connections along note axis, whos last layer outputs 2 values. The first value, Play Probability, indicates the probability that a particular note should be chosen to be played. The second value, Articulate Probability (applies only for notes that have already been played in prior time step), is probability the note should last longer, say, from a sixteenth note to an eighth note. </p>
+                <h2 class="section-heading">Model Software Implementation </h2>
 </p>
                 </div>
             </div>
