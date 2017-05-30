@@ -18,7 +18,7 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
+    <script src="index.js"></script>
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
@@ -173,7 +173,7 @@
                 However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network effectively has a time axis and note axis, connecting inputs to outputs and recurrent connections from one axis to another.
                 <br>
                 <br>
-                <a href="#rnn_cont" class="page-scroll btn btn-default btn-xl sr-button">Implementation Details</a> 
+                <a id="rnncontbutt" class="page-scroll btn btn-default btn-xl sr-button">Implementation Details</a> 
 </p>
                 </div>
             </div>
@@ -183,13 +183,13 @@
 
 
 
-<section class="bg-primary" id="rnn_cont">
+<section hidden class="bg-primary" id="rnn_cont">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Deep Dive into Our Biaxial Recurrent Neural Network</h2>
                     <hr class="light">
-                    <p class="text-faded">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
+                    <p align="left" class="text-faded">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
                     <ol class="text-faded">
                   <li align="left">Position: </li>
                   <li align="left">Pitchlass</li>
