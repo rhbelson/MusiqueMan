@@ -177,7 +177,7 @@
 
                 REWRITE
 
-                The first two layers (defaults to 300 nodes each) feed back (a la RNN) through time. the third and fourth timesteps (200 (text Ben and make sure its 200) and 50) feed back into themselves to give an awareness of harmony.
+                The first two layers default to 300 nodes each and feed back via the RNN through the time axis. The third and fourth timesteps are 200 and 50, respectively. feed back into themselves to give an awareness of harmony.
 
                 <br>
                 <br>
@@ -239,9 +239,20 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Project Report</h2>
                     <hr class="primary">
-                    Our task is to create a machine composer that learn composer and genre style, and  produce original work in that style. This task is important because we can experiment with different genres or mixes of input data to create new styles and compositions that can inspire our own work, or possibly be quality compositions in their own right. Bach was only able to write 500 chorals in his lifetime. Wouldn’t it be great if we could do this in an hour?  Furthermore, by interacting with a machine composer, writers can be provided material and inspiration for their work.
-                        <br><br>
-                    Using Daniel Johnson's Biaxial Long Short-Term Memory Biaxial Recurrent Neural Network, we generated new compositions of music in a variety of styles, from Classical (e.g., music in the style of Fredyryk Chopin) to Classic Rock (e.g., Music in the style of beatles). This neural network learner's strengths included high quality outputs – as music was aesthetically pleasing and aurally resembled the genre of the training set – and comprehensive feature set, as pattern recognition, meter, pitch-class were some of the features used. Given the complexity of the learner required to perform automated music composition coupled with an in-depth analysis of Daniel Johnson's algorithm itself, we concluded that a neural network is the only learner capable of producing meaningful outputs in this discipline. Furthermore, in experimenting with hyperparamter adjustment – such as dropout and temeprature – we determined that the adjustments that led to the most aurally recognizable changes resided in adjusting the number of nodes of hidden layers across the time and note axes.
+                    <p align="left">
+                    From Google’s Magenta and Wavenet, to Stanford University's GRUV or Cambridge University’s BachBot, the plethora of deep learning software for music generation available today share one thing in common – its use of neural networks. One of the most compelling elements of a piece in music is the series of relationships constructed across the piece from note-to-note, harmony-to-harmony, or even larger macrostructural relationships. These relationships – and its resulting patterns and repetition – are essential to music composition, and neural networks are thus the most natural choice for a learner. In conducting this project, we looked for a series of other techniques we could use to generate music. One of the leading alternatives we considered was using a decision tree: in segmenting a dataset of thousands of harmonic progressions sorted in a CSV, a probabilistic model would help generate a new series of harmonies – and upon generating the new harmonic progression, we would use Python’s MIDI package to generate these harmonies. While this would have been a successful project, the generated harmonies would have no way to morph into a more elaborate piece of music. With neural networks, computation was done at the level of each individual notes, leading to a much wider range of compositions. Thus, we chose neural networks as our backend architecture for the project.<br><br>
+                    For each output generated (see below), each training set was composed a series of MIDI files in that style or genre. For example, in our Bach dataset, we had approximately 1.2MB of a variety of Bach selections, from fugues to chorales. The specific features of our data, outlined in our “How does the Biaxial Recurrent Neural Network Work?” section above, is composed of:<br>
+                    1. Pitchclass:Current pitch of a particular note, ranging from the MIDI note values 0-127) <br>
+                    2. Previous vicinity: A set of 50 values, representing the three nearest octaves of pitches, where each value is given a 1 if that pitch was present in the last timestep and a zero otherwise<br>
+                    3. Previous Context: Similar to Previous Vicinity parameter, but condensed to 1 octave, number of times a certain pitch class was played across any octave is reported across the 12 values:<br>
+                    4. Beat: Using a 4 row binary representation, one for each beat of the 4/4 time signature, each 1 represents the "note-on" MIDI property for each timestep.<br><br>
+                     
+                        For this project, we had 4 distinct datasets: <br>
+                    Bach 1.0: Our First Bach Dataset:<br>
+                    Bach 2.0: More Comprehensive Bach Dataset:<br>
+                    Chopin Dataset:<br>
+                    Beatles Dataset:<br>
+                </p> 
                 </div>
             </div>
         </div>
@@ -250,7 +261,7 @@
 
 
 
-    <section class="no-padding" id="portfolio">
+   <!--  <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
@@ -348,7 +359,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <aside class="bg-dark">
         <div class="container text-center">
