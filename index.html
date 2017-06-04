@@ -36,12 +36,12 @@
 
 <body id="page-top">
 
-<embed id="mus"
+<!-- <embed id="mus"
     src="homepage.mp3"
     loop="true"
     width="1"
     height="1"
-    autostart="true">
+    autostart="true"> -->
 
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -80,7 +80,10 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Automated Music Generator using Recurrent Neural Network </h1>
                 <hr>
-                <p>Learning a variety of styles in just a matter of hours, MusiqueMan succesfully synthesized music from Bach to the Beatles! </p>
+                <p>EECS 349 Final Project <br>Ben Krege, Victor Lalo, and Robert Belson<br>
+                    JohnKrege2018@u.northwestern.edu<br>
+                    VictorLalo2017@u.northwestern.edu<br>
+                    RobertBelson2019@u.northwestern.edu </p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Learn More</a>
             </div>
         </div>
@@ -90,9 +93,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Our Task</h2>
+                    <h2 class="section-heading">Abstract</h2>
                     <hr class="light">
-                    <p class="text-faded">Our task is to create a machine composer that writes in a specific composer or genres’ style, and produce original work in that style. This task is important because we can experiment with different genres or mixes of input data to create new styles and compositions that can inspire our own work, or possibly be quality compositions in their own right. Bach was only able to write 500 chorals in his lifetime. Wouldn’t it be great if we could do this in an hour?  Furthermore, by interacting with a machine composer, writers can be provided material and inspiration for their work.
+                    <p class="text-faded">Our task is to create a machine composer that learn composer and genre style, and  produce original work in that style. This task is important because we can experiment with different genres or mixes of input data to create new styles and compositions that can inspire our own work, or possibly be quality compositions in their own right. Bach was only able to write 500 chorals in his lifetime. Wouldn’t it be great if we could do this in an hour?  Furthermore, by interacting with a machine composer, writers can be provided material and inspiration for their work.
+                        <br><br>
+                    Using Daniel Johnson's Biaxial Long Short-Term Memory Biaxial Recurrent Neural Network, we generated new compositions of music in a variety of styles, from Classical (e.g., music in the style of Fredyryk Chopin) to Classic Rock (e.g., Music in the style of beatles). This neural network learner's strengths included high quality outputs – as music was aesthetically pleasing and aurally resembled the genre of the training set – and comprehensive feature set, as pattern recognition, meter, pitch-class were some of the features used. Given the complexity of the learner required to perform automated music composition coupled with an in-depth analysis of Daniel Johnson's algorithm itself, we concluded that a neural network is the only learner capable of producing meaningful outputs in this discipline. Furthermore, in experimenting with hyperparamter adjustment – such as dropout and temeprature – we determined that the adjustments that led to the most aurally recognizable changes resided in adjusting the number of nodes of hidden layers across the time and note axes.
 </p>
                     <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">How'd we do it?</a>
                 </div>
@@ -114,8 +119,8 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Our Architecture: Daniel Johnson's Biaxial Recurrent Neural Network</h3>
-                        <p class="text-muted">As the backbone of our project, this software  synthesized more than 1.5MB of data in just a few hours, producing the music seen below. </p>
+                        <h3>Our Architecture: Daniel Johnson's Biaxial Long Short-Term Memory Recurrent Neural Network</h3>
+                        <p class="text-muted">After just ~12 hours of training, producing a new piece takes just a matter of minutes. </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -151,26 +156,29 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">How does the Biaxial Recurrent Neural Network Work?</h2>
                     <hr class="light">
-                    <p>Drawing from the techniques of convolution neural networks coupled with long short-term memory layers, our recurrent neural network learns to predict at a given time step of a piece of music, which notes will be played (among other paramters such as duration).<br>
+                    <p>Drawing from some concepts of convolution neural networks (applying the same invarient network on each time step)coupled with long short-term memory layers, our recurrent neural network learns to predict which notes will be played (among other paramters such as duration) at each time step (1/16th notes) of a piece.<br>
 
-                    In basic recurrent neural networks, each output of a particular hidden layer, beyond the weighted sum of the inputs, is computed and fed back to itself as an additional input. Thus, each node of a hidden layer is derived by the outputs of the current layer from the last time step and the inputs of the previous layer, as seen in the figure below:
+                    In basic recurrent neural networks, each output of a particular hidden layer, beyond the weighted sum of the inputs, is computed and fed back to itself, and other nodes in that "column," as an additional input in the next time step. Thus, each node of a hidden layer is derived by the outputs of the current layer and the inputs of the previous layer, as seen in the figure below:
                     <br>
                     <img src="img/rnn1.jpg" width="30%" align="middle" alt="">
                     <br>
-                    However, to solve the short-term nature of a value output in a given time step (i.e., for a value to be "saved in memory", an output needs to be an output once more in the next time step rather than becoming another input), Long Short-Term Memory (LSTM) nodes includes a cell for outputs from prior time steps. This cell can be modified (e.g., addeded, subtracted, etc.) at each time step.
 
-                    For this neural network adapted specifically to generate pieces of music, unique properties of this network included:
-                <ol class="text-faded">
-                  <li align="left">Note and Time Invariance: For the generated music to be transposable and composed to an indefinite length, the network was constructed to be identical for each note and time step </li>
-                  <li align="left">Vertical and Horizontal Motion: Compositions would support polyphonic music, with multiple notes at a given time step</li>
-                  <li align="left">Repetition as Integral Compositional Element: Often times, western music and its resulting genres are structured by repeition. Thus, the network must allow repetition of the same note.</li>
-                </ol>
-                But how can we reconcile the relative strengths of convolutional neural networks with LSTM?<br>
-                If our convolutional kernel is now the recurrent neural network itself, each note would have its own neural network, composed of memory cells (LSTM), with each layer receiving 12 inputs (1 for each chroma/half step). This stack of recurrent neural networks (one for each note) can be represented in the visual below:
+                     For the network to have short-term-memory, an output needs to be an input in the next time step. Long Short-Term Memory (LSTM) nodes includes a saved value that is included in each node's calculations. This value can be modified (e.g., addeded, subtracted, etc.) at each time step.
                 <br>
                 <img src="img/rnn2.jpg" width="30%" align="middle" alt="">
                 <br>
-                However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network effectively has a time axis and note axis, connecting inputs to outputs and recurrent connections from one axis to another.
+                    For this neural network adapted specifically to generate pieces of music, unique properties of this network included:
+                <ol class="text-faded">
+                  <li align="left">Note and Time Invariance: For the generated music to be transposable and composed to an indefinite length, the network was constructed to be identical for each note and time step (time+note invarient)</li>
+                  <li align="left">Vertical and Horizontal Motion: Network supports polyphonic music, with multiple notes at a given time step</li>
+                  <li align="left">Repetition as Integral Compositional Element: Western music is repetitive. Thus, the network must allow repetition of the same note. The uniqueness of this network is that it has an encoding for a note to be held. This contrasts some previous machine composer designs that did not distinguish between a held note and a repeated note.</li>
+                </ol>
+                However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network has time axis and note axis, connecting inputs to outputs and recurrent connections from one axis to another.
+
+                REWRITE
+
+                The first two layers (defaults to 300 nodes each) feed back (a la RNN) through time. the third and fourth timesteps (200 (text Ben and make sure its 200) and 50) feed back into themselves to give an awareness of harmony.
+
                 <br>
                 <br>
                 <a id="rnncontbutt" class="page-scroll btn btn-default btn-xl sr-button">Implementation Details (Cont.)</a> 
@@ -189,7 +197,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Deep Dive into Our Biaxial Recurrent Neural Network</h2>
                     <hr class="light">
-                    <p align="left">For each of our inputs to a given layer, across the time axis, we have the following paramters to our input vector:
+                    <p align="left">For each time step we have the following paramters to our input vector:
                     <ol class="text-faded">
                   <li align="left">Position: Current pitch of a particular note, ranging from 0-127 (MIDI note value) </li>
                   <li align="left">Pitchlass: Consisting of 12 values, one per pitchclass, incrementing by 1 for each value (A will be 0, A# will be 1.... G# will be 11). In this assumption, Johnson posits that this will allow selection of "more common chords." However, this assumption is incredibly naive, given his assertion that is is necessarily "more common to have a C major chord than E-flat major chord." In certain iterations of our model, we adjusted this paramter to reflect a different weighting of commonality of various chords. </li>
@@ -223,6 +231,21 @@
         </div>
     </section>
 
+
+
+  <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Project Report</h2>
+                    <hr class="primary">
+                    Our task is to create a machine composer that learn composer and genre style, and  produce original work in that style. This task is important because we can experiment with different genres or mixes of input data to create new styles and compositions that can inspire our own work, or possibly be quality compositions in their own right. Bach was only able to write 500 chorals in his lifetime. Wouldn’t it be great if we could do this in an hour?  Furthermore, by interacting with a machine composer, writers can be provided material and inspiration for their work.
+                        <br><br>
+                    Using Daniel Johnson's Biaxial Long Short-Term Memory Biaxial Recurrent Neural Network, we generated new compositions of music in a variety of styles, from Classical (e.g., music in the style of Fredyryk Chopin) to Classic Rock (e.g., Music in the style of beatles). This neural network learner's strengths included high quality outputs – as music was aesthetically pleasing and aurally resembled the genre of the training set – and comprehensive feature set, as pattern recognition, meter, pitch-class were some of the features used. Given the complexity of the learner required to perform automated music composition coupled with an in-depth analysis of Daniel Johnson's algorithm itself, we concluded that a neural network is the only learner capable of producing meaningful outputs in this discipline. Furthermore, in experimenting with hyperparamter adjustment – such as dropout and temeprature – we determined that the adjustments that led to the most aurally recognizable changes resided in adjusting the number of nodes of hidden layers across the time and note axes.
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
