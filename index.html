@@ -95,9 +95,9 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Abstract</h2>
                     <hr class="light">
-                    <p class="text-faded">Our task is to create a machine composer that learn composer and genre style, and  produce original work in that style. This task is important because we can experiment with different genres or mixes of input data to create new styles and compositions that can inspire our own work, or possibly be quality compositions in their own right. Bach was only able to write 500 chorals in his lifetime. Wouldn’t it be great if we could do this in an hour?  Furthermore, by interacting with a machine composer, writers can be provided material and inspiration for their work.
+                    <p class="text-faded">Our task is to create a machine composer that can learn composer and genre style, and produce original work in that style. Bach was only able to write 500 chorals in his lifetime. Wouldn’t it be great if we could do this in an hour? This task is artistically significant because we can experiment with different genres or mixes of input data to create new styles and compositions that can inspire our own work, or possibly be quality compositions in their own right. Furthermore, by interacting with a machine composer, writers can be provided material and inspiration for their work.
                         <br><br>
-                    Using Daniel Johnson's Biaxial Long Short-Term Memory Biaxial Recurrent Neural Network, we generated new compositions of music in a variety of styles, from Classical (e.g., music in the style of Fredyryk Chopin) to Classic Rock (e.g., Music in the style of beatles). This neural network learner's strengths included high quality outputs – as music was aesthetically pleasing and aurally resembled the genre of the training set – and comprehensive feature set, as pattern recognition, meter, pitch-class were some of the features used. Given the complexity of the learner required to perform automated music composition coupled with an in-depth analysis of Daniel Johnson's algorithm itself, we concluded that a neural network is the only learner capable of producing meaningful outputs in this discipline. Furthermore, in experimenting with hyperparamter adjustment – such as dropout and temeprature – we determined that the adjustments that led to the most aurally recognizable changes resided in adjusting the number of nodes of hidden layers across the time and note axes.
+                    Using Daniel Johnson's Biaxial Long Short-Term Memory Biaxial Recurrent Neural Network, we generated new compositions in a variety of styles, from Classical (e.g., music in the style of Fredyryk Chopin) to Classic Rock (e.g., Music in the style of beatles). This neural network learner's strengths included high quality outputs – as music was aesthetically pleasing and aurally resembled the genre of the training set – and comprehensive feature set, as pattern recognition, meter, pitch-class were some of the features used. Given the complexity of the learner required to perform automated music composition coupled with an in-depth analysis of Daniel Johnson's algorithm itself, we concluded that a neural network is the only learner capable of producing meaningful outputs in this discipline. Furthermore, in experimenting with hyperparamter adjustment – such as dropout and temeprature – we determined that the adjustments that led to the most aurally recognizable changes resided in adjusting the number of nodes of hidden layers across the time and note axes.
 </p>
                     <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">How'd we do it?</a>
                 </div>
@@ -127,7 +127,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
                         <h3>Endless, Recyclable Music Composition </h3>
-                        <p class="text-muted">Using AWS to optimize performance, as the RNN was designed for GPUs, we queued up a variety of compositions over the course of a few weeks.</p>
+                        <p class="text-muted">Using graphics enabled AWS p2.xLarge instances to drive performance, we queued up a variety of compositions over the course of a few weeks.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -141,7 +141,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
                         <h3>Breadth of Project</h3>
-                        <p class="text-muted">Unlike Daniel Johnson, we sought to apply his neural network across a variety of styles, comparing its capcity to produce aurally compelling music. Beginning first with the classical genre, drawing from the compositions of Bach and Chopin, we then explored other genres such as classical rock, pop, and electronic and house music.</p>
+                        <p class="text-muted">Unlike Daniel Johnson, we sought to apply his neural network across a variety of styles, comparing its capacity to learn distinctive styles. Beginning first with the classical genre, drawing from the compositions of Bach and Chopin, we then explored other genres such as classical rock, pop, and electronic and house music.</p>
                     </div>
                 </div>
             </div>
@@ -173,11 +173,10 @@
                   <li align="left">Vertical and Horizontal Motion: Network supports polyphonic music, with multiple notes at a given time step</li>
                   <li align="left">Repetition as Integral Compositional Element: Western music is repetitive. Thus, the network must allow repetition of the same note. The uniqueness of this network is that it has an encoding for a note to be held. This contrasts some previous machine composer designs that did not distinguish between a held note and a repeated note.</li>
                 </ol>
-                However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network has time axis and note axis, connecting inputs to outputs and recurrent connections from one axis to another.
+                However, to integrate pattern recognition over time (an integral component to constructing aurally). Coined as "Biaxial RNN" by Daniel Johnson, the network has time axis and note axis, forming recurrent connections along time and note axes.
 
-                REWRITE
 
-                The first two layers default to 300 nodes each and feed back via the RNN through the time axis. The third and fourth timesteps are 200 and 50, respectively. feed back into themselves to give an awareness of harmony.
+                The first two layers default to 300 nodes each and feed back via the RNN through the time axis. The third and fourth layers, 200 and 50 nodes, respectively, feed back into themselves to give an awareness of harmony.
 
                 <br>
                 <br>
