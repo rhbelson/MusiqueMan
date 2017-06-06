@@ -252,12 +252,34 @@
                     We used four datasets for our project. Each set contained between 1 and 2 MB of data.<br><br>
 
                     Bach 1.0: Our First Bach Dataset: In this dataset, we used approximately ~1.2MB of a variety of Bach selections, from fugues to chorales. Characteristics of this dataset include standard harmonic progressions of Western Tonal music (i.e., what is often referred to as “progressive harmony”), multiple independent voices, and modulations to closely related keys (e.g., C Major to G Major). The MIDI was represented in multi-track form, and the RNN tried to reconcile chord structures and melodies across tracks, a feat significantly more challenging than if all tracks (voices) were condensed into one. As a result, the output resulted in a fugue-esque composition, with two independent melodic lines at a particularly slow tempo in C Major. Especially after hearing the audio output, this led us to conclude that a relative weakness of Daniel Johnson’s algorithm was multitrack MIDI. In future iterations (i.e., Bach 2.0), we used single-track MIDI. <br><br>
+                    
+                    <audio controls>
+                      <source src="Bach_FULL_No_FX.mp3" type="audio/mpeg">
+                    </audio>
+                    <br>
 
                     Bach 2.0: More Comprehensive Bach Dataset: As expected, this dataset ran significantly better than our first Bach dataset. This was due to changing the MIDI Format (see MIDI Formatting section) from 1 to 0, as well as almost doubling the amount of training examples given. We ran 153 Bach compositions, with MIDI note counts ranging from 312 notes to 2,930 notes, averaging at around 1,044 notes per file. As a result, the composition features a clear melodic line with a supporting accompaniment figure in Eb Major. This significantly more harmonically nuanced composition supported our earlier hypothesis that the RNN architecture prefers single track MIDI.<br><br>
 
+                    <audio controls>
+                      <source src="Bad_Bach_FULL_FX.mp3" type="audio/mpeg">
+                    </audio>
+                    <br>
+
+
                     Chopin Dataset: We ran 95 Chopin compositions, with MIDI note counts ranging from 675 notes to 4,827 notes, averaging at around 1,662 notes per file. Inspired by Polish folk tunes, characteristic of Chopin compositions was melodic ornamentation, increasingly complex modulations, and more liberal tempos. In the Chopin output, the output resembled many of his nocturnes, with a slightly syncopated rhythm in Eb Major. While the composition was by no means a “perfect replica” of a Chopin composition, many of Chopin’s idiosyncratic compositional elements (i.e., chromatic passing tones in melodic line, general tonal areas that were less likely to be in C Major) were certainly present.<br><br>
 
+                     <audio controls>
+                      <source src="Chopin_FULL_AllFX.mp3" type="audio/mpeg">
+                    </audio>
+                    <br>
+
                     Beatles Dataset: The Beatles have a genre-defying style, and their musical energy range exceeds any other pop group. Their compositions include slow ballads, upbeat rock, lullabies, acoustic folk, and psychedelic drones. It is very difficult to pinpoint a specific mood, structure, or even melodic pattern since the quartet changed their sound so drastically from one album to the next. We grabbed every song from seven of their studio albums to analyze: Rubber Soul, Revolver, Sgt. Pepper’s, Magical Mystery Tour, The White Album, Abbey Road, and Let it Be, along with some single releases.In total, we ran 96 Beatles compositions, with MIDI note counts ranging from 1,762 notes to 10,988 notes, averaging at around 3,762 notes per file. The amount of notes played in Beatles music was much higher on average than that of classical compositions. Our guess is this has to do with the instrumentation of Beatles songs, having many more voices complementing each other at once. We believe this allowed the neural network to pick up on rhythmic patterns very well.<br>
+
+                     <audio controls>
+                      <source src="Beatles_ChordProg_FX.mp3" type="audio/mpeg">
+                    </audio>
+                    <br>
+
                      <br>The software’s output really impressed us. Although we mentioned above that it is difficult to define the Beatles’ musical style, we could make out much of Paul McCartney and John Lennon’s songwriting in the neural net’s creation. From the beginning of the piece, I noticed the algorithm was able to recognize a rhythmic pattern used a lot in McCartney’s piano playing. It captures the chords repeating on the upbeat, while the bass plays on the downbeat. The alternating style, found in many Beatles’ tracks, captures the listener with differing frequency ranges responding to each other over time. This section’s melody also complements Lennon’s descending scale tones, used in many of his vocal lines (e.g. Blue Jay Way, Come Together). At around 1 minute in, we start to hear the use of an alternating root bass against elegant and complex major chords, with an uplifting melody, very reminiscent of some of McCartney’s sillier or lighter songs (e.g. Maxwell’s Silver Hammer, Hello Goodbye, Good Day Sunshine). The chords contain many dominant seventh and major seventh notes, a key component of multiple Beatles’ progressions. At around the 1:35 mark, we hear a beautifully crafted progression in A minor, which many people would recognize as a standard pop progression used by many top artists today. It amazes us that the neural network is able to implicitly learn, to some extent, what makes chords fit well together. The higher pitched melody gracefully dances above the chords and almost seamlessly blends back into the chords themselves. This is our favorite section of this track for it’s simple, yet almost human feel. It reminds us of McCartney’s solo piano songs (e.g. Hey Jude, Golden Slumbers), delicately fusing vocals and piano parts into very emotionally charged compositions.</p><br><br>
 
                     <pre>&#9</pre> 
