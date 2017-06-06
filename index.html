@@ -63,7 +63,7 @@
                         <a class="page-scroll" href="#services">Approach and Design Considerations</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Our Music and Data</a>
+                        <a class="page-scroll" href="#final_report">Final Report</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -233,7 +233,7 @@
 
 
 
-  <section id="services">
+  <section id="final_report">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -241,18 +241,53 @@
                     <hr class="primary">
                     <p align="left">
                     From Google’s Magenta and Wavenet, to Stanford University's GRUV or Cambridge University’s BachBot, the plethora of deep learning software for music generation available today share one thing in common – its use of neural networks. One of the most compelling elements of a piece in music is the series of relationships constructed across the piece from note-to-note, harmony-to-harmony, or even larger macrostructural relationships. These relationships – and its resulting patterns and repetition – are essential to music composition, and neural networks are thus the most natural choice for a learner. In conducting this project, we looked for a series of other techniques we could use to generate music. One of the leading alternatives we considered was using a decision tree: in segmenting a dataset of thousands of harmonic progressions sorted in a CSV, a probabilistic model would help generate a new series of harmonies – and upon generating the new harmonic progression, we would use Python’s MIDI package to generate these harmonies. While this would have been a successful project, the generated harmonies would have no way to morph into a more elaborate piece of music. With neural networks, computation was done at the level of each individual notes, leading to a much wider range of compositions. Thus, we chose neural networks as our backend architecture for the project.<br><br>
-                    For each output generated (see below), each training set was composed a series of MIDI files in that style or genre. For example, in our Bach dataset, we had approximately 1.2MB of a variety of Bach selections, from fugues to chorales. The specific features of our data, outlined in our “How does the Biaxial Recurrent Neural Network Work?” section above, is composed of:<br>
-                    1. Pitchclass:Current pitch of a particular note, ranging from the MIDI note values 0-127) <br>
+                    For each output generated (see below), each training set was composed a series of MIDI files in that style or genre. For example, in our Bach dataset, we had approximately 1.2MB of a variety of Bach selections, from fugues to chorales. The specific features of our data, outlined in our “How does the Biaxial Recurrent Neural Network Work?” section above, is composed of:<br><br>
+                    1. Pitch class:Current pitch of a particular note, ranging from the MIDI note values 0-127) <br>
                     2. Previous vicinity: A set of 50 values, representing the three nearest octaves of pitches, where each value is given a 1 if that pitch was present in the last timestep and a zero otherwise<br>
-                    3. Previous Context: Similar to Previous Vicinity parameter, but condensed to 1 octave, number of times a certain pitch class was played across any octave is reported across the 12 values:<br>
+                    3. Previous Context: Similar to Previous Vicinity parameter, but condensed to 1 octave, number of times a certain pitch class was played across any octave is reported across the 12 values <br> 
                     4. Beat: Using a 4 row binary representation, one for each beat of the 4/4 time signature, each 1 represents the "note-on" MIDI property for each timestep.<br><br>
-                     
-                        For this project, we had 4 distinct datasets: <br>
-                    Bach 1.0: Our First Bach Dataset:<br>
-                    Bach 2.0: More Comprehensive Bach Dataset:<br>
-                    Chopin Dataset:<br>
-                    Beatles Dataset:<br>
-                </p> 
+                    
+                    <h1 font-weight="bold">The Datasets</h1><br>
+                    <p align="left">
+                    We used four datasets for our project. Each set contained between 1 and 2 MB of data.<br><br>
+
+                    Bach 1.0: Our First Bach Dataset: In this dataset, we used approximately ~1.2MB of a variety of Bach selections, from fugues to chorales. Characteristics of this dataset include standard harmonic progressions of Western Tonal music (i.e., what is often referred to as “progressive harmony”), multiple independent voices, and modulations to closely related keys (e.g., C Major to G Major). The MIDI was represented in multi-track form, and the RNN tried to reconcile chord structures and melodies across tracks, a feat significantly more challenging than if all tracks (voices) were condensed into one. As a result, the output resulted in a fugue-esque composition, with two independent melodic lines at a particularly slow tempo in C Major. Especially after hearing the audio output, this led us to conclude that a relative weakness of Daniel Johnson’s algorithm was multitrack MIDI. In future iterations (i.e., Bach 2.0), we used single-track MIDI. <br><br>
+
+                    Bach 2.0: More Comprehensive Bach Dataset: As expected, this dataset ran significantly better than our first Bach dataset. This was due to changing the MIDI Format (see MIDI Formatting section) from 1 to 0, as well as almost doubling the amount of training examples given. We ran 153 Bach compositions, with MIDI note counts ranging from 312 notes to 2,930 notes, averaging at around 1,044 notes per file. As a result, the composition features a clear melodic line with a supporting accompaniment figure in Eb Major. This significantly more harmonically nuanced composition supported our earlier hypothesis that the RNN architecture prefers single track MIDI.<br><br>
+
+                    Chopin Dataset: We ran 95 Chopin compositions, with MIDI note counts ranging from 675 notes to 4,827 notes, averaging at around 1,662 notes per file. Inspired by Polish folk tunes, characteristic of Chopin compositions was melodic ornamentation, increasingly complex modulations, and more liberal tempos. In the Chopin output, the output resembled many of his nocturnes, with a slightly syncopated rhythm in Eb Major. While the composition was by no means a “perfect replica” of a Chopin composition, many of Chopin’s idiosyncratic compositional elements (i.e., chromatic passing tones in melodic line, general tonal areas that were less likely to be in C Major) were certainly present.<br><br>
+
+                    Beatles Dataset: The Beatles have a genre-defying style, and their musical energy range exceeds any other pop group. Their compositions include slow ballads, upbeat rock, lullabies, acoustic folk, and psychedelic drones. It is very difficult to pinpoint a specific mood, structure, or even melodic pattern since the quartet changed their sound so drastically from one album to the next. We grabbed every song from seven of their studio albums to analyze: Rubber Soul, Revolver, Sgt. Pepper’s, Magical Mystery Tour, The White Album, Abbey Road, and Let it Be, along with some single releases.In total, we ran 96 Beatles compositions, with MIDI note counts ranging from 1,762 notes to 10,988 notes, averaging at around 3,762 notes per file. The amount of notes played in Beatles music was much higher on average than that of classical compositions. Our guess is this has to do with the instrumentation of Beatles songs, having many more voices complementing each other at once. We believe this allowed the neural network to pick up on rhythmic patterns very well.<br>
+                     <br>The software’s output really impressed us. Although we mentioned above that it is difficult to define the Beatles’ musical style, we could make out much of Paul McCartney and John Lennon’s songwriting in the neural net’s creation. From the beginning of the piece, I noticed the algorithm was able to recognize a rhythmic pattern used a lot in McCartney’s piano playing. It captures the chords repeating on the upbeat, while the bass plays on the downbeat. The alternating style, found in many Beatles’ tracks, captures the listener with differing frequency ranges responding to each other over time. This section’s melody also complements Lennon’s descending scale tones, used in many of his vocal lines (e.g. Blue Jay Way, Come Together). At around 1 minute in, we start to hear the use of an alternating root bass against elegant and complex major chords, with an uplifting melody, very reminiscent of some of McCartney’s sillier or lighter songs (e.g. Maxwell’s Silver Hammer, Hello Goodbye, Good Day Sunshine). The chords contain many dominant seventh and major seventh notes, a key component of multiple Beatles’ progressions. At around the 1:35 mark, we hear a beautifully crafted progression in A minor, which many people would recognize as a standard pop progression used by many top artists today. It amazes us that the neural network is able to implicitly learn, to some extent, what makes chords fit well together. The higher pitched melody gracefully dances above the chords and almost seamlessly blends back into the chords themselves. This is our favorite section of this track for it’s simple, yet almost human feel. It reminds us of McCartney’s solo piano songs (e.g. Hey Jude, Golden Slumbers), delicately fusing vocals and piano parts into very emotionally charged compositions.</p><br><br>
+
+                    <pre>&#9</pre> 
+                    Input Formatting: While gathering MIDI files for analysis, we found that most notation divides a piece into different tracks to represent separate voicings. This makes sense for playing back a composition with multiple instruments, but for our analysis, we wanted all parts of the piece (melody, chords, bass) on a single piano track, allowing the algorithm to focus on a single file per piece. While researching how MIDI files are written, we learned that there are multiple MIDI formats. Most of our examples are MIDI Format 1, which are files that contain multiple tracks for output on multiple instruments. We therefore used a simple conversion software called Sweet Midi Converter to turn these files into MIDI Format 0, which unifies all tracks into one.<br>
+                    <br>Another problem we ran into was rhythm sections. Percussion in terms of MIDI relies on using hit samples placed into a sampler. A sampler still uses a note convention, assigning a sample to each key on a keyboard, but when read by a note analyzer, it throws off the rest of the song’s harmony components. In other words, if the song is in the scale of C Major, and the sampler has a kick sample on B2 and a snare sample on D#3, feeding this track to our algorithm would greatly alter the conclusion of harmony drawn. Our solution was to remove all percussion tracks from the tracks. Bach and Chopin pieces had very little change, since they are meant to be played as solo or duet pianos. Our Beatles dataset on the other hand had percussion on almost every file. Midi Format 1 worked in our favor here as we were able to delete the individual percussion tracks and then save the file without them. We then finally converted the now percussion-less files into Format 0 for a single MIDI track.<br><br>
+
+                    <pre>&#9</pre> 
+                    Output Modulation/Manipulation: In order to turn the neural net’s MIDI output into useful audio, we imported the files into Logic Pro X, processing and editing within the Digital Audio Workstation for a more pleasant listening experience. For comparison, we have included the original neural network’s output alongside our edited versions. In our opinion, the edited versions have more “feel” and the listener can relate more to this experience.<br><br>
+
+                    <pre>&#9</pre> 
+                    MIDI Effects:  In terms of the MIDI notes, we wanted to give our machine’s performance a human feel. We achived this with several effects that manipulate the note’s timing, velocity, and relative pitch. The first addition was adding subtle swing to our pieces. Swing moves the notes very slightly off of the grid, giving the performance a less than perfect timing. Human error is part of many individual styles, and sounding mechanically perfect detracts from a piece’s movement. The Beatles output received the biggest timing change, while the Bach output received minimal swing, accounting for style each composer was intending to play. Next we modulated the note’s velocities. Again, having every note hit at the same force constantly detracts from a song’s dynamic energy. The velocity modulator allows for a random velocity (0-127 value) within a specified range and with a bias towards playing harder or softer more often. Lastly, we used a scale transposer to keep the song harmonious, avoiding dissonant notes. We set a scale, say C Major, and if Logic detects a note that is not within the scale it transposes it to the closest note that is in the scale. This is surely the most controversial edit we made to our neural nets output, but we see it as adding an extra constraint on the output. By filtering incorrect notes, the piece sounds more cohesive and allows a listener to better follow along. The classical compositions tended to lean more towards major scales, while The Beatles had simpler, although more minor tonalities.
+                     <img src="img/swing_and_quantization.png" width="60%" align="middle" alt="">
+                     <img src="img/velocity_and_scale.png" width="60%" align="middle" alt="">
+                     <pre>&#9</pre> 
+                    Audio Output: As for the actual auditory output, we ran our MIDI notes through a sampler loaded with recordings of individual Boesendorfer Grand Piano keys, each with multiple velocities. This is as close as we can get to replicating an acoustic piano. Aside from the instrument, we used an equalizer to shape the tone and a compressor for dynamic stability. Lastly, we placed convolutional reverb on our audio chain, giving each output a unique space. The reverb works by grabbing frequency responses of specific rooms/halls. Each piece’s sound is slightly different than the others to account for the style of the composer. We believe this instrumentation assists in expressing what the network has learned and created.
+
+                    <pre>&#9</pre> 
+                    Future Works: Very pleased with the work and outputs of the project, there are many areas for further exploration. Firstly, we could experiment with a variety of other different musical genres (i.e., pop, blues, jazz, etc.), creating datasets on which to run our RNN. Additionally, another significantly time-consuming project could be to modify the algorithm to support a wider range of rhythmic devices (e.g., 32nd notes), and harmonic devices (e.g., create different weightings of “vicinity” feature to support more interesting melodic lines for, say, 12-tone compositions).</p> 
+
+                    <pre>&#9</pre> 
+                    <h1>Group Responsibilities<h1>
+                    <p>Ben: Backend infrastructure work with AWS <br>
+                    Victor: Dataset manipulation and FX synthesis <br>
+                    Robbie: Front-end webpage design, harmonic analyses of RNN outputs<p>
+
+
+
+
+
+
                 </div>
             </div>
         </div>
