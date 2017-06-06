@@ -1,0 +1,126 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red47\green180\blue29;\red64\green11\blue217;}
+\margl1440\margr1440\vieww16300\viewh11740\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b\fs22 \cf2 \CocoaLigature0 ubuntu@ip-172-31-8-171
+\f1\b0 \cf0 :
+\f0\b \cf3 ~/biaxial-rnn-music-composition
+\f1\b0 \cf0 $ python chopinTrain.py \
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:\
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29\
+\
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)\
+/home/ubuntu/biaxial-rnn-music-composition/model.py:370: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic\
+  self.walk_input: next_input\
+/home/ubuntu/biaxial-rnn-music-composition/model.py:373: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic\
+  updates.update(\{hidden:newstate for hidden, newstate, layer in zip(self.walk_hiddens, new_states, self.time_model.layers) if has_hidden(layer)\})\
+10 pieces loaded\
+20 pieces loaded\
+30 pieces loaded\
+40 pieces loaded\
+50 pieces loaded\
+60 pieces loaded\
+70 pieces loaded\
+80 pieces loaded\
+86\
+epoch 0, minute 24939330.9366, error=128042.578125, perplexity=inf\
+epoch 100, minute 24939340.3022, error=16296.7802734, perplexity=0.0969872283936\
+epoch 200, minute 24939349.6026, error=13587.0859375, perplexity=0.0475843763351\
+epoch 300, minute 24939358.966, error=9986.31152344, perplexity=0.0306965700785\
+epoch 400, minute 24939368.2825, error=9485.45605469, perplexity=0.0228937864304\
+epoch 500, minute 24939377.6417, error=9310.54003906, perplexity=0.0182778053284\
+epoch 600, minute 24939386.9659, error=8180.37304688, perplexity=0.0150158214569\
+epoch 700, minute 24939396.3186, error=7450.53955078, perplexity=0.0127372019632\
+epoch 800, minute 24939405.646, error=7720.68310547, perplexity=0.0111895728111\
+epoch 900, minute 24939415.0112, error=7518.5703125, perplexity=0.00991681204902\
+epoch 1000, minute 24939424.331, error=6815.10986328, perplexity=0.00882689762115\
+epoch 1100, minute 24939433.6915, error=7357.95605469, perplexity=0.00809412522749\
+epoch 1200, minute 24939442.8754, error=7148.953125, perplexity=0.00739560127258\
+epoch 1300, minute 24939452.1078, error=7830.23339844, perplexity=0.0068967291025\
+epoch 1400, minute 24939461.2959, error=6491.24316406, perplexity=0.00627014977591\
+epoch 1500, minute 24939470.523, error=6679.87695312, perplexity=0.00587123680115\
+epoch 1600, minute 24939479.8394, error=6483.78710938, perplexity=0.00548566281796\
+epoch 1700, minute 24939489.0164, error=6628.10205078, perplexity=0.0051759259841\
+epoch 1800, minute 24939498.1906, error=6155.90087891, perplexity=0.00484731462267\
+epoch 1900, minute 24939507.4089, error=6266.97021484, perplexity=0.00460160456206\
+epoch 2000, minute 24939516.5805, error=5862.31640625, perplexity=0.00433815002441\
+epoch 2100, minute 24939525.893, error=6068.078125, perplexity=0.00414799871899\
+epoch 2200, minute 24939535.0815, error=6786.4296875, perplexity=0.00401030930606\
+epoch 2300, minute 24939544.3086, error=5784.37744141, perplexity=0.00376648529716\
+epoch 2400, minute 24939553.452, error=5002.41113281, perplexity=0.00354903141658\
+epoch 2500, minute 24939562.681, error=6341.98046875, perplexity=0.00350197868347\
+epoch 2600, minute 24939571.9751, error=6181.34814453, perplexity=0.00335741996765\
+epoch 2700, minute 24939581.2083, error=5893.98779297, perplexity=0.00321544011434\
+epoch 2800, minute 24939590.3966, error=5774.31933594, perplexity=0.00309327704566\
+epoch 2900, minute 24939599.5928, error=6088.56054688, perplexity=0.0030048850487\
+epoch 3000, minute 24939608.7829, error=5426.91992188, perplexity=0.00286637560527\
+epoch 3100, minute 24939618.097, error=4963.79150391, perplexity=0.00274513706084\
+epoch 3200, minute 24939627.2774, error=5967.85888672, perplexity=0.00271691977978\
+epoch 3300, minute 24939636.465, error=4899.97460938, perplexity=0.00257484407136\
+epoch 3400, minute 24939645.6505, error=5832.2890625, perplexity=0.00255034250372\
+epoch 3500, minute 24939654.8386, error=5172.29785156, perplexity=0.00244316346305\
+epoch 3600, minute 24939664.1331, error=5392.74267578, perplexity=0.00238689157698\
+epoch 3700, minute 24939673.3733, error=4671.16064453, perplexity=0.0022835574279\
+epoch 3800, minute 24939682.5342, error=5794.39697266, perplexity=0.00228017029009\
+epoch 3900, minute 24939691.7802, error=5441.12109375, perplexity=0.00220557457361\
+epoch 4000, minute 24939700.9367, error=5845.23925781, perplexity=0.00216834568977\
+epoch 4100, minute 24939710.2603, error=4938.81005859, perplexity=0.00207436096377\
+epoch 4200, minute 24939719.4504, error=5205.87988281, perplexity=0.00203751041776\
+epoch 4300, minute 24939728.6409, error=5082.00341797, perplexity=0.0019845257249\
+epoch 4400, minute 24939737.7947, error=4751.31689453, perplexity=0.00192413113334\
+epoch 4500, minute 24939746.9861, error=4584.60253906, perplexity=0.00187343533834\
+epoch 4600, minute 24939756.328, error=5118.08007812, perplexity=0.00185663803764\
+epoch 4700, minute 24939765.5241, error=5485.04101562, perplexity=0.00183186794849\
+epoch 4800, minute 24939774.6745, error=4882.72900391, perplexity=0.00176947077115\
+epoch 4900, minute 24939783.8588, error=4540.76464844, perplexity=0.00171854097016\
+epoch 5000, minute 24939793.0654, error=4907.171875, perplexity=0.00169969062805\
+epoch 5100, minute 24939802.3865, error=5166.87207031, perplexity=0.00167647511351\
+epoch 5200, minute 24939811.54, error=4184.39794922, perplexity=0.0016036765392\
+epoch 5300, minute 24939820.7321, error=4493.68066406, perplexity=0.00158687303651\
+epoch 5400, minute 24939829.8848, error=4764.93505859, perplexity=0.00156834054876\
+epoch 5500, minute 24939839.0841, error=4180.98535156, perplexity=0.00151605502042\
+epoch 5600, minute 24939848.4083, error=4018.46923828, perplexity=0.00148190293993\
+epoch 5700, minute 24939857.6078, error=5530.36425781, perplexity=0.00151193133572\
+epoch 5800, minute 24939866.7598, error=5584.90332031, perplexity=0.00148755566827\
+epoch 5900, minute 24939875.9518, error=4323.98828125, perplexity=0.00141897185374\
+epoch 6000, minute 24939885.1048, error=5216.46191406, perplexity=0.00142659584681\
+epoch 6100, minute 24939894.4614, error=4635.43554688, perplexity=0.00138385006639\
+epoch 6200, minute 24939903.6263, error=4432.93212891, perplexity=0.0013543252022\
+epoch 6300, minute 24939912.8285, error=4047.94458008, perplexity=0.00131840705872\
+epoch 6400, minute 24939921.988, error=4765.75976562, perplexity=0.00132331445813\
+epoch 6500, minute 24939931.1978, error=4589.57958984, perplexity=0.00129716051542\
+epoch 6600, minute 24939940.5176, error=4372.25683594, perplexity=0.00127015677365\
+epoch 6700, minute 24939949.7143, error=3855.35571289, perplexity=0.00123242065088\
+epoch 6800, minute 24939958.8649, error=5217.07128906, perplexity=0.00125877815134\
+epoch 6900, minute 24939968.0536, error=4361.05957031, perplexity=0.00121456090955\
+epoch 7000, minute 24939977.2083, error=4418.265625, perplexity=0.00119907174792\
+epoch 7100, minute 24939986.5577, error=4192.23876953, perplexity=0.00117478733331\
+epoch 7200, minute 24939995.7236, error=4284.56689453, perplexity=0.0011614965068\
+epoch 7300, minute 24940004.9229, error=5103.09375, perplexity=0.00116953457872\
+epoch 7400, minute 24940014.0807, error=4502.56396484, perplexity=0.00113681110176\
+epoch 7500, minute 24940023.2734, error=3863.61425781, perplexity=0.00110124778748\
+epoch 7600, minute 24940032.561, error=4483.90966797, perplexity=0.00110634879062\
+epoch 7700, minute 24940041.7149, error=3990.18652344, perplexity=0.00107683033138\
+epoch 7800, minute 24940050.872, error=4804.07177734, perplexity=0.00108682302328\
+epoch 7900, minute 24940060.0792, error=4102.29833984, perplexity=0.00105307627328\
+epoch 8000, minute 24940069.2339, error=4428.98095703, perplexity=0.00104949057102\
+epoch 8100, minute 24940078.5754, error=4132.09130859, perplexity=0.00102796778267\
+epoch 8200, minute 24940087.7264, error=4906.28173828, perplexity=0.00103637462709\
+epoch 8300, minute 24940096.9181, error=4693.21484375, perplexity=0.00101853887719\
+epoch 8400, minute 24940106.0367, error=4701.87304688, perplexity=0.00100663287299\
+epoch 8500, minute 24940115.238, error=4318.05419922, perplexity=0.000984771728516\
+epoch 8600, minute 24940124.541, error=3866.83081055, perplexity=0.000960487321366\
+epoch 8700, minute 24940133.7444, error=3370.00097656, perplexity=0.000933640030609\
+epoch 8800, minute 24940142.9079, error=4430.8359375, perplexity=0.000954129912636\
+epoch 8900, minute 24940152.0757, error=3857.79589844, perplexity=0.000927848494455\
+epoch 9000, minute 24940161.2392, error=4702.06396484, perplexity=0.000939528571235\
+epoch 9100, minute 24940170.5862, error=3901.20019531, perplexity=0.000908685621324\
+epoch 9200, minute 24940179.7627, error=4226.95751953, perplexity=0.000907525808915\
+epoch 9300, minute 24940188.931, error=4381.91845703, perplexity=0.00090163887188\
+epoch 9400, minute 24940198.1003, error=4832.99902344, perplexity=0.000902470426357\
+epoch 9500, minute 24940207.2941, error=3760.17211914, perplexity=0.000866549441689\
+epoch 9600, minute 24940216.608, error=4067.86230469, perplexity=0.000865715940793\
+epoch 9700, minute 24940225.7737, error=4070.69140625, perplexity=0.000856862707236\
+epoch 9800, minute 24940234.9389, error=3977.01831055, perplexity=0.000845743685353}
