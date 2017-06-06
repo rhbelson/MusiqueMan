@@ -1,0 +1,1278 @@
+
+Bens-MacBook-Pro:FinalProject Ben$ ssh -i "KP2.pem" ubuntu@ec2-13-58-1-161.us-east-2.compute.amazonaws.com
+The authenticity of host 'ec2-13-58-1-161.us-east-2.compute.amazonaws.com (13.58.1.161)' can't be established.
+ECDSA key fingerprint is SHA256:dtsE7SfojP9S6TBenMDFNF4aX8aBJpzAG64bugrgZC0.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-13-58-1-161.us-east-2.compute.amazonaws.com,13.58.1.161' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-1017-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Thu May 18 20:00:05 2017 from 108.84.165.247
+ubuntu@ip-172-31-8-171:~$ ls
+biaxial-rnn-music-composition  external
+ubuntu@ip-172-31-8-171:~$ cd biaxial-rnn-music-composition/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev            31432316       0  31432316   0% /dev
+tmpfs            6287996    9068   6278928   1% /run
+/dev/xvda1       8065444 7824224    224836  98% /
+tmpfs           31439964       0  31439964   0% /dev/shm
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs           31439964       0  31439964   0% /sys/fs/cgroup
+tmpfs            6287996       0   6287996   0% /run/user/1000
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev            31432316       0  31432316   0% /dev
+tmpfs            6287996    9072   6278924   1% /run
+/dev/xvda1       8065444 7824224    224836  98% /
+tmpfs           31439964       0  31439964   0% /dev/shm
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs           31439964       0  31439964   0% /sys/fs/cgroup
+tmpfs            6287996       0   6287996   0% /run/user/1000
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+KeyboardInterrupt
+>>> uit()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'uit' is not defined
+>>> quit()
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import model
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+>>> m = pickle.load('models/perams2500.pem')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pickle' is not defined
+>>> import pickle
+>>> m = pickle.load('models/perams2500.pem')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/pickle.py", line 1384, in load
+    return Unpickler(file).load()
+  File "/usr/lib/python2.7/pickle.py", line 847, in __init__
+    self.readline = file.readline
+AttributeError: 'str' object has no attribute 'readline'
+>>> m = pickle.load(models/perams2500.pem)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'models' is not defined
+>>> m = pickle.load(/models/perams2500.pem)
+  File "<stdin>", line 1
+    m = pickle.load(/models/perams2500.pem)
+                    ^
+SyntaxError: invalid syntax
+>>> m = pickle.load(open('models/perams2500.pem','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IOError: [Errno 2] No such file or directory: 'models/perams2500.pem'
+>>> m = pickle.load(open('models/perams2500.pem','rb'))quit()
+  File "<stdin>", line 1
+    m = pickle.load(open('models/perams2500.pem','rb'))quit()
+                                                          ^
+SyntaxError: invalid syntax
+>>> ls
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'ls' is not defined
+>>> quit()
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd models/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup2.sh
+data.py                                midi_to_statematrix.pyc  music               setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   readme.md
+main.py                                multi_training.py        setup1.sh
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+KeyboardInterrupt
+>>> 
+KeyboardInterrupt
+>>> quit()
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ screen emacs python
+[detached from 1740.pts-0.ip-172-31-8-171]
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup1.sh
+data.py                                midi_to_statematrix.pyc  music               setup2.sh
+data.pyc                               model.py                 out_to_in_op.py     setup_optional.sh
+LICENSE.txt                            model.pyc                out_to_in_op.pyc    visualize.py
+__MACOSX                               models                   #python#
+main.py                                multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ logout
+Connection to ec2-13-58-1-161.us-east-2.compute.amazonaws.com closed.
+Bens-MacBook-Pro:FinalProject Ben$ ssh -i "KP2.pem" ubuntu@ec2-13-58-1-161.us-east-2.compute.amazonaws.com
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-1017-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri May 19 01:22:12 2017 from 108.84.165.247
+ubuntu@ip-172-31-8-171:~$ ls
+biaxial-rnn-music-composition  external
+ubuntu@ip-172-31-8-171:~$ cd biaxial-rnn-music-composition/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup1.sh
+data.py                                midi_to_statematrix.pyc  music               setup2.sh
+data.pyc                               model.py                 out_to_in_op.py     setup_optional.sh
+LICENSE.txt                            model.pyc                out_to_in_op.pyc    visualize.py
+__MACOSX                               models                   #python#
+main.py                                multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd modelsls
+-bash: cd: modelsls: No such file or directory
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup1.sh
+data.py                                midi_to_statematrix.pyc  music               setup2.sh
+data.pyc                               model.py                 out_to_in_op.py     setup_optional.sh
+LICENSE.txt                            model.pyc                out_to_in_op.pyc    visualize.py
+__MACOSX                               models                   #python#
+main.py                                multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd models
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  setup1.sh
+data.py                                midi_to_statematrix.pyc  music               setup2.sh
+data.pyc                               model.py                 out_to_in_op.py     setup_optional.sh
+LICENSE.txt                            model.pyc                out_to_in_op.pyc    visualize.py
+__MACOSX                               models                   #python#
+main.py                                multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs output/foo.txt
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  readme.md
+data.py                                midi_to_statematrix.pyc  music               setup1.sh
+data.pyc                               model.py                 output              setup2.sh
+LICENSE.txt                            model.pyc                out_to_in_op.py     setup_optional.sh
+__MACOSX                               models                   out_to_in_op.pyc    visualize.py
+main.py                                multi_training.py        #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import model
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+im>>> import pickle 
+>>> m = pickle.load(load('models/perams2500.pem','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'load' is not defined
+>>> import load
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named load
+>>> m = pickle.load(open('models/perams2500.pem','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IOError: [Errno 2] No such file or directory: 'models/perams2500.pem'
+>>> m = pickle.load(open('/models/perams2500.pem','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IOError: [Errno 2] No such file or directory: '/models/perams2500.pem'
+>>> m = pickle.load(open('models/params2500.pem','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IOError: [Errno 2] No such file or directory: 'models/params2500.pem'
+>>> quit()
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  readme.md
+data.py                                midi_to_statematrix.pyc  music               setup1.sh
+data.pyc                               model.py                 output              setup2.sh
+LICENSE.txt                            model.pyc                out_to_in_op.py     setup_optional.sh
+__MACOSX                               models                   out_to_in_op.pyc    visualize.py
+main.py                                multi_training.py        #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd models
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  readme.md
+data.py                                midi_to_statematrix.pyc  music               setup1.sh
+data.pyc                               model.py                 output              setup2.sh
+LICENSE.txt                            model.pyc                out_to_in_op.py     setup_optional.sh
+__MACOSX                               models                   out_to_in_op.pyc    visualize.py
+main.py                                multi_training.py        #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> ls
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'ls' is not defined
+>>> import model
+import pickWARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+leUsing gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+
+>>> import pickle
+>>> m = pickle.load(open('models/perams2500.p','rw'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/pickle.py", line 1384, in load
+    return Unpickler(file).load()
+  File "/usr/lib/python2.7/pickle.py", line 864, in load
+    dispatch[key](self)
+  File "/usr/lib/python2.7/pickle.py", line 972, in load_string
+    raise ValueError, "insecure string pickle"
+ValueError: insecure string pickle
+>>> modelsrc = 'models/perams2500.p'
+>>> m = pickle.load(open(modelsrc,'rw'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/pickle.py", line 1384, in load
+    return Unpickler(file).load()
+  File "/usr/lib/python2.7/pickle.py", line 864, in load
+    dispatch[key](self)
+  File "/usr/lib/python2.7/pickle.py", line 972, in load_string
+    raise ValueError, "insecure string pickle"
+ValueError: insecure string pickle
+>>> print m
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'm' is not defined
+>>> modelsrc = 'models/perams2500.p'
+>>> modelscr = open(modelsrc, 'rw')
+>>> modelscr = open(modelsrc, 'rb')
+>>> m = pickle.load(modelscr)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/pickle.py", line 1384, in load
+    return Unpickler(file).load()
+  File "/usr/lib/python2.7/pickle.py", line 864, in load
+    dispatch[key](self)
+  File "/usr/lib/python2.7/pickle.py", line 972, in load_string
+    raise ValueError, "insecure string pickle"
+ValueError: insecure string pickle
+>>> import cpickle
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: No module named cpickle
+>>> modelsrc = open('models/perams2500.p','w')
+>>> pickleout.close()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'pickleout' is not defined
+>>> picleout.close()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'picleout' is not defined
+>>> m = pickle.load(open('models/perams2500.p','rb')
+... )
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/usr/lib/python2.7/pickle.py", line 1384, in load
+    return Unpickler(file).load()
+  File "/usr/lib/python2.7/pickle.py", line 864, in load
+    dispatch[key](self)
+  File "/usr/lib/python2.7/pickle.py", line 886, in load_eof
+    raise EOFError
+EOFError
+>>> import cPickle as pickle
+>>> m = pickle.load(open('models/perams2500.p','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+EOFError
+>>> m = pickle.load(open('models/perams2500.p','rb'))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+EOFError
+>>> quit()
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  readme.md
+data.py                                midi_to_statematrix.pyc  music               setup1.sh
+data.pyc                               model.py                 output              setup2.sh
+LICENSE.txt                            model.pyc                out_to_in_op.py     setup_optional.sh
+__MACOSX                               models                   out_to_in_op.pyc    visualize.py
+main.py                                multi_training.py        #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.py   #python#
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  readme.md
+data.py                                midi_to_statematrix.pyc  music               setup1.sh
+data.pyc                               model.py                 output              setup2.sh
+LICENSE.txt                            model.pyc                out_to_in_op.py     setup_optional.sh
+__MACOSX                               models                   out_to_in_op.pyc    visualize.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+ls
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 4, in <module>
+    m = pickle.load(open('models/perams2500.p','rb'))
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.py   #python#
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   multi_training.pyc  readme.md
+data.py                                midi_to_statematrix.pyc  music               setup1.sh
+data.pyc                               model.py                 output              setup2.sh
+LICENSE.txt                            model.pyc                out_to_in_op.py     setup_optional.sh
+__MACOSX                               models                   out_to_in_op.pyc    visualize.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 4, in <module>
+    m = pickle.load(open('models/perams2500.p','rb'))
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+unpickling
+Traceback (most recent call last):
+  File "bach_composer.py", line 6, in <module>
+    m = pickle.load(file)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+unpickling
+Traceback (most recent call last):
+  File "bach_composer.py", line 6, in <module>
+    m = pickle.load(file)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 3, in <module>
+    import munti_training
+ImportError: No module named munti_training
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.pyc  setup1.sh
+bach_composer.py~                      midi_to_statematrix.py   music               setup2.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.pyc  output              setup_optional.sh
+data.py                                model.py                 out_to_in_op.py     visualize.py
+data.pyc                               model.pyc                out_to_in_op.pyc
+LICENSE.txt                            models                   #python#
+__MACOSX                               multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 3, in <module>
+    import munti_training
+ImportError: No module named munti_training
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+unpickling
+Traceback (most recent call last):
+  File "bach_composer.py", line 7, in <module>
+    m = pickle.load(file)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.pyc  setup1.sh
+bach_composer.py~                      midi_to_statematrix.py   music               setup2.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.pyc  output              setup_optional.sh
+data.py                                model.py                 out_to_in_op.py     visualize.py
+data.pyc                               model.pyc                out_to_in_op.pyc
+LICENSE.txt                            models                   #python#
+__MACOSX                               multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+unpickling
+Traceback (most recent call last):
+  File "bach_composer.py", line 7, in <module>
+    m = cPickle.load(file)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 6, in <module>
+    m = cPickle.load(file)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 6, in <module>
+    m = pickle.load(f)
+NameError: name 'pickle' is not defined
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 6, in <module>
+    m = cPickle.load(f)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 6, in <module>
+    m = pickle.load(f)
+EOFError
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+
+File Edit Options Buffers Tools Python Help                                                               
+import cPickle as pickle
+import model
+import multi_training
+
+with open("models/perams2500.p", "rb") as f:
+    m = pickle.load(f)
+
+#m = cPickle.load(f                                                                                       
+
+pcs = multi_training.loadPieces("music")
+
+gen_adaptive(m,pcs,10,name="composition")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-UU-:----F1  bach_composer.py   All L5     (Python) ------------------------------------------------------
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.pyc  setup1.sh
+bach_composer.py~                      midi_to_statematrix.py   music               setup2.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.pyc  output              setup_optional.sh
+data.py                                model.py                 out_to_in_op.py     visualize.py
+data.pyc                               model.pyc                out_to_in_op.pyc
+LICENSE.txt                            models                   #python#
+__MACOSX                               multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ^C
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ^C
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.pyc  setup1.sh
+bach_composer.py~                      midi_to_statematrix.py   music               setup2.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.pyc  output              setup_optional.sh
+data.py                                model.py                 out_to_in_op.py     visualize.py
+data.pyc                               model.pyc                out_to_in_op.pyc
+LICENSE.txt                            models                   #python#
+__MACOSX                               multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ stop
+stop: missing job name
+Try `stop --help' for more information.
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd models/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+params2000.pd  perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.pyc  setup1.sh
+bach_composer.py~                      midi_to_statematrix.py   music               setup2.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.pyc  output              setup_optional.sh
+data.py                                model.py                 out_to_in_op.py     visualize.py
+data.pyc                               model.pyc                out_to_in_op.pyc
+LICENSE.txt                            models                   #python#
+__MACOSX                               multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 5, in <module>
+    with open("models/params2000.p", "rb") as f:
+IOError: [Errno 2] No such file or directory: 'models/params2000.p'
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd models
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+params2000.pd  perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cp params2000.pd params2000.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+params2000.p  params2000.pd  perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ rm params2000.pd
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+params2000.p  perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.pyc  setup1.sh
+bach_composer.py~                      midi_to_statematrix.py   music               setup2.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.pyc  output              setup_optional.sh
+data.py                                model.py                 out_to_in_op.py     visualize.py
+data.pyc                               model.pyc                out_to_in_op.pyc
+LICENSE.txt                            models                   #python#
+__MACOSX                               multi_training.py        readme.md
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Loaded catech2
+Loaded sinfon8
+Loaded catech5
+Loaded schub5
+Loaded schub6
+Loaded bsgjg_c
+Loaded trio3a
+Loaded bsgjg_e
+Loaded bsgjg_i
+Loaded 11jesu
+Loaded prefug7
+Loaded sin2
+Loaded fuguegm
+Loaded 06christ
+Loaded 05anwass
+Loaded catech8
+Loaded 13allein
+Loaded bsgjg_a
+Loaded sinfon3
+Loaded prefug3
+Loaded sinfon1
+Loaded bsgjg_l
+Loaded sinfon9
+Loaded bsgjg_f
+Loaded prefug5
+Loaded catech1
+Loaded 10austie
+Loaded 03achgot
+Loaded catech10
+Loaded bsgjg_j
+Loaded bsgjg_g
+Loaded catech4
+Loaded cap2
+Loaded bsgjg_k
+Loaded catech9
+Loaded catech6
+Loaded gig1
+Loaded bsgjg_d
+Loaded fuguecm
+Loaded toccata1
+Loaded bsgjg_b
+Loaded prefug8
+Loaded toccata2
+Loaded 14oherre
+Loaded 02ichdan
+Loaded catech11
+Loaded catech7
+Loaded sinfon12
+Loaded sinfon4
+Loaded 04esistd
+Loaded prefug2
+Loaded sinfon14
+Loaded 09ermunt
+Loaded 08freuet
+Loaded catech3
+Loaded bsgjg_h
+Loaded 15christ
+Loaded pre1
+Loaded prefug1
+Loaded orgel19
+Loaded catechor
+Traceback (most recent call last):
+  File "bach_composer.py", line 12, in <module>
+    gen_adaptive(m,pcs,10,name="composition")
+NameError: name 'gen_adaptive' is not defined
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Loaded catech2
+Loaded sinfon8
+Loaded catech5
+Loaded schub5
+Loaded schub6
+Loaded bsgjg_c
+Loaded trio3a
+Loaded bsgjg_e
+Loaded bsgjg_i
+Loaded 11jesu
+Loaded prefug7
+Loaded sin2
+Loaded fuguegm
+Loaded 06christ
+Loaded 05anwass
+Loaded catech8
+Loaded 13allein
+Loaded bsgjg_a
+Loaded sinfon3
+Loaded prefug3
+Loaded sinfon1
+Loaded bsgjg_l
+Loaded sinfon9
+Loaded bsgjg_f
+Loaded prefug5
+Loaded catech1
+Loaded 10austie
+Loaded 03achgot
+Loaded catech10
+Loaded bsgjg_j
+Loaded bsgjg_g
+Loaded catech4
+Loaded cap2
+Loaded bsgjg_k
+Loaded catech9
+Loaded catech6
+Loaded gig1
+Loaded bsgjg_d
+Loaded fuguecm
+Loaded toccata1
+Loaded bsgjg_b
+Loaded prefug8
+Loaded toccata2
+Loaded 14oherre
+Loaded 02ichdan
+Loaded catech11
+Loaded catech7
+Loaded sinfon12
+Loaded sinfon4
+Loaded 04esistd
+Loaded prefug2
+Loaded sinfon14
+Loaded 09ermunt
+Loaded 08freuet
+Loaded catech3
+Loaded bsgjg_h
+Loaded 15christ
+Loaded pre1
+Loaded prefug1
+Loaded orgel19
+Loaded catechor
+Traceback (most recent call last):
+  File "bach_composer.py", line 14, in <module>
+    gen_adaptive(m,pcs,10,name="Bach_Comp1")
+  File "/home/ubuntu/biaxial-rnn-music-composition/main.py", line 14, in gen_adaptive
+    m.start_slow_walk(xIpt[0])
+AttributeError: 'list' object has no attribute 'start_slow_walk'
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ^C
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.py   readme.md
+bach_composer.py~                      main.pyc                 multi_training.pyc  setup1.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   music               setup2.sh
+data.py                                midi_to_statematrix.pyc  output              setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.py   readme.md
+bach_composer.py~                      main.pyc                 multi_training.pyc  setup1.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   music               setup2.sh
+data.py                                midi_to_statematrix.pyc  output              setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python
+Python 2.7.12 (default, Nov 19 2016, 06:48:10) 
+[GCC 5.4.0 20160609] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.py                  multi_training.py   readme.md
+bach_composer.py~                      main.pyc                 multi_training.pyc  setup1.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   music               setup2.sh
+data.py                                midi_to_statematrix.pyc  output              setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+__MACOSX                               models                   #python#
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cmacs bach_trainer.py
+No command 'cmacs' found, did you mean:
+ Command 'emacs' from package 'emacs24-lucid' (universe)
+ Command 'emacs' from package 'e3' (universe)
+ Command 'emacs' from package 'jove' (universe)
+ Command 'emacs' from package 'emacs24' (main)
+ Command 'emacs' from package 'emacs24-nox' (main)
+ Command 'jmacs' from package 'joe' (universe)
+ Command 'jmacs' from package 'joe-jupp' (universe)
+cmacs: command not found
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_trainer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       __MACOSX                 models              #python#
+bach_composer.py~                      main.py                  multi_training.py   readme.md
+bach_trainer.py                        main.pyc                 multi_training.pyc  setup1.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   music               setup2.sh
+data.py                                midi_to_statematrix.pyc  output              setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Traceback (most recent call last):
+  File "bach_composer.py", line 8, in <module>
+    m.learned_config = pickle.load(f)
+NameError: name 'm' is not defined
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_composer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       __MACOSX                 models              #python#
+bach_composer.py~                      main.py                  multi_training.py   readme.md
+bach_trainer.py                        main.pyc                 multi_training.pyc  setup1.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   music               setup2.sh
+data.py                                midi_to_statematrix.pyc  output              setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+LICENSE.txt                            model.pyc                out_to_in_op.pyc
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_trainer.py 
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_composer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+/home/ubuntu/biaxial-rnn-music-composition/model.py:370: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic
+  self.walk_input: next_input
+/home/ubuntu/biaxial-rnn-music-composition/model.py:373: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic
+  updates.update({hidden:newstate for hidden, newstate, layer in zip(self.walk_hiddens, new_states, self.time_model.layers) if has_hidden(layer)})
+Loaded catech2
+Loaded sinfon8
+Loaded catech5
+Loaded schub5
+Loaded schub6
+Loaded bsgjg_c
+Loaded trio3a
+Loaded bsgjg_e
+Loaded bsgjg_i
+Loaded 11jesu
+Loaded prefug7
+Loaded sin2
+Loaded fuguegm
+Loaded 06christ
+Loaded 05anwass
+Loaded catech8
+Loaded 13allein
+Loaded bsgjg_a
+Loaded sinfon3
+Loaded prefug3
+Loaded sinfon1
+Loaded bsgjg_l
+Loaded sinfon9
+Loaded bsgjg_f
+Loaded prefug5
+Loaded catech1
+Loaded 10austie
+Loaded 03achgot
+Loaded catech10
+Loaded bsgjg_j
+Loaded bsgjg_g
+Loaded catech4
+Loaded cap2
+Loaded bsgjg_k
+Loaded catech9
+Loaded catech6
+Loaded gig1
+Loaded bsgjg_d
+Loaded fuguecm
+Loaded toccata1
+Loaded bsgjg_b
+Loaded prefug8
+Loaded toccata2
+Loaded 14oherre
+Loaded 02ichdan
+Loaded catech11
+Loaded catech7
+Loaded sinfon12
+Loaded sinfon4
+Loaded 04esistd
+Loaded prefug2
+Loaded sinfon14
+Loaded 09ermunt
+Loaded 08freuet
+Loaded catech3
+Loaded bsgjg_h
+Loaded 15christ
+Loaded pre1
+Loaded prefug1
+Loaded orgel19
+Loaded catechor
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       LICENSE.txt              model.pyc           out_to_in_op.pyc
+bach_composer.py~                      __MACOSX                 models              #python#
+bach_trainer.py                        main.py                  multi_training.py   readme.md
+bach_trainer.py~                       main.pyc                 multi_training.pyc  setup1.sh
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  midi_to_statematrix.py   music               setup2.sh
+data.py                                midi_to_statematrix.pyc  output              setup_optional.sh
+data.pyc                               model.py                 out_to_in_op.py     visualize.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd output/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ ls
+Bach_Comp1.mid  foo.txt
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ scp -i KP2.pem ubuntu@ec2-52-14-196-166.us-east-2.compute.amazonaws.com:~/biaxial-rnn-music-composition/output/samp
+usage: scp [-12346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program]
+           [[user@]host1:]file1 ... [[user@]host2:]file2
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ ls
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ ls
+Bach_Comp1.mid  foo.txt
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd models
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+params2000.p  perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cp params200.p /bach1/params200.p
+cp: cannot stat 'params200.p': No such file or directory
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cp -f params200.p /bach1/params200.p
+cp: cannot stat 'params200.p': No such file or directory
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ ls
+params2000.p  perams2500.p
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/models$ cd ../
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ scp -i KP2.pem ubuntu@ec2-52-14-196-166.us-east-2.compute.amazo
+usage: scp [-12346BCpqrv] [-c cipher] [-F ssh_config] [-i identity_file]
+           [-l limit] [-o ssh_option] [-P port] [-S program]
+           [[user@]host1:]file1 ... [[user@]host2:]file2
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_trainer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ Connection to ec2-13-58-1-161.us-east-2.compute.amazonaws.com closed by remote host.
+Connection to ec2-13-58-1-161.us-east-2.compute.amazonaws.com closed.
+Bens-MacBook-Pro:FinalProject Ben$ ssh -i "KP2.pem" ubuntu@ec2-13-58-1-161.us-east-2.compute.amazonaws.com
+ssh: connect to host ec2-13-58-1-161.us-east-2.compute.amazonaws.com port 22: Operation timed out
+Bens-MacBook-Pro:FinalProject Ben$ ssh -i "KP2.pem" ubuntu@ec2-13-58-125-253.us-east-2.compute.amazonaws.com
+The authenticity of host 'ec2-13-58-125-253.us-east-2.compute.amazonaws.com (13.58.125.253)' can't be established.
+ECDSA key fingerprint is SHA256:dtsE7SfojP9S6TBenMDFNF4aX8aBJpzAG64bugrgZC0.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-13-58-125-253.us-east-2.compute.amazonaws.com,13.58.125.253' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-1017-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Fri May 19 01:52:37 2017 from 108.84.165.247
+ubuntu@ip-172-31-8-171:~$ ls
+biaxial-rnn-music-composition  external
+ubuntu@ip-172-31-8-171:~$ cd biaxial-rnn-music-composition/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_trainer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Loaded catech2
+Loaded sinfon8
+Loaded catech5
+Loaded schub5
+Loaded schub6
+Loaded bsgjg_c
+Loaded trio3a
+Loaded bsgjg_e
+Loaded bsgjg_i
+Loaded 11jesu
+Loaded prefug7
+Loaded sin2
+Loaded fuguegm
+Loaded 06christ
+Loaded 05anwass
+Loaded catech8
+Loaded 13allein
+Loaded bsgjg_a
+Loaded sinfon3
+Loaded prefug3
+Loaded sinfon1
+Loaded bsgjg_l
+Loaded sinfon9
+Loaded bsgjg_f
+Loaded prefug5
+Loaded catech1
+Loaded 10austie
+Loaded 03achgot
+Loaded catech10
+Loaded bsgjg_j
+Loaded bsgjg_g
+Loaded catech4
+Loaded cap2
+Loaded bsgjg_k
+Loaded catech9
+Loaded catech6
+Loaded gig1
+Loaded bsgjg_d
+Loaded fuguecm
+Loaded toccata1
+Loaded bsgjg_b
+Loaded prefug8
+Loaded toccata2
+Loaded 14oherre
+Loaded 02ichdan
+Loaded catech11
+Loaded catech7
+Loaded sinfon12
+Loaded sinfon4
+Loaded 04esistd
+Loaded prefug2
+Loaded sinfon14
+Loaded 09ermunt
+Loaded 08freuet
+Loaded catech3
+Loaded bsgjg_h
+Loaded 15christ
+Loaded pre1
+Loaded prefug1
+Loaded orgel19
+Loaded catechor
+/home/ubuntu/biaxial-rnn-music-composition/model.py:370: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic
+  self.walk_input: next_input
+/home/ubuntu/biaxial-rnn-music-composition/model.py:373: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic
+  updates.update({hidden:newstate for hidden, newstate, layer in zip(self.walk_hiddens, new_states, self.time_model.layers) if has_hidden(layer)})
+Traceback (most recent call last):
+  File "bach_trainer.py", line 8, in <module>
+    multi_training.trainPeace(m,pcs,5000)
+AttributeError: 'module' object has no attribute 'trainPeace'
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ emacs bach_trainer.py
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ python bach_trainer.py 
+WARNING (theano.sandbox.cuda): The cuda backend is deprecated and will be removed in the next release (v0.10).  Please switch to the gpuarray backend. You can get more information about how to switch at this URL:
+ https://github.com/Theano/Theano/wiki/Converting-to-the-new-gpu-back-end%28gpuarray%29
+
+Using gpu device 0: Tesla K80 (CNMeM is disabled, cuDNN not available)
+Loaded catech2
+Loaded sinfon8
+Loaded catech5
+Loaded schub5
+Loaded schub6
+Loaded bsgjg_c
+Loaded trio3a
+Loaded bsgjg_e
+Loaded bsgjg_i
+Loaded 11jesu
+Loaded prefug7
+Loaded sin2
+Loaded fuguegm
+Loaded 06christ
+Loaded 05anwass
+Loaded catech8
+Loaded 13allein
+Loaded bsgjg_a
+Loaded sinfon3
+Loaded prefug3
+Loaded sinfon1
+Loaded bsgjg_l
+Loaded sinfon9
+Loaded bsgjg_f
+Loaded prefug5
+Loaded catech1
+Loaded 10austie
+Loaded 03achgot
+Loaded catech10
+Loaded bsgjg_j
+Loaded bsgjg_g
+Loaded catech4
+Loaded cap2
+Loaded bsgjg_k
+Loaded catech9
+Loaded catech6
+Loaded gig1
+Loaded bsgjg_d
+Loaded fuguecm
+Loaded toccata1
+Loaded bsgjg_b
+Loaded prefug8
+Loaded toccata2
+Loaded 14oherre
+Loaded 02ichdan
+Loaded catech11
+Loaded catech7
+Loaded sinfon12
+Loaded sinfon4
+Loaded 04esistd
+Loaded prefug2
+Loaded sinfon14
+Loaded 09ermunt
+Loaded 08freuet
+Loaded catech3
+Loaded bsgjg_h
+Loaded 15christ
+Loaded pre1
+Loaded prefug1
+Loaded orgel19
+Loaded catechor
+/home/ubuntu/biaxial-rnn-music-composition/model.py:370: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic
+  self.walk_input: next_input
+/home/ubuntu/biaxial-rnn-music-composition/model.py:373: UserWarning: Updating an `OrderedUpdates` with a non-ordered dictionary with 2+ elements could make your code non-deterministic
+  updates.update({hidden:newstate for hidden, newstate, layer in zip(self.walk_hiddens, new_states, self.time_model.layers) if has_hidden(layer)})
+epoch 0, error=104756.976562
+epoch 100, error=12934.8798828
+epoch 200, error=9891.02148438
+epoch 300, error=7908.64111328
+epoch 400, error=7971.75927734
+epoch 500, error=9893.91796875
+epoch 600, error=5671.91699219
+epoch 700, error=6083.44189453
+epoch 800, error=4905.92382812
+epoch 900, error=5591.01367188
+epoch 1000, error=5286.63085938
+epoch 1100, error=3834.25830078
+epoch 1200, error=4349.96142578
+epoch 1300, error=4157.37939453
+epoch 1400, error=4067.86523438
+epoch 1500, error=4406.20117188
+epoch 1600, error=3767.02050781
+epoch 1700, error=3713.5847168
+epoch 1800, error=2979.37524414
+epoch 1900, error=2537.75366211
+epoch 2000, error=3323.9609375
+epoch 2100, error=3226.31860352
+epoch 2200, error=3570.03588867
+epoch 2300, error=2705.30493164
+epoch 2400, error=2221.20654297
+epoch 2500, error=2842.1730957
+epoch 2600, error=2292.53759766
+epoch 2700, error=2079.47241211
+epoch 2800, error=2255.60913086
+epoch 2900, error=2658.98364258
+epoch 3000, error=2101.56054688
+epoch 3100, error=2013.69714355
+epoch 3200, error=2273.72924805
+epoch 3300, error=1868.63513184
+epoch 3400, error=1727.79150391
+epoch 3500, error=1652.88037109
+epoch 3600, error=2204.32592773
+epoch 3700, error=1707.5501709
+epoch 3800, error=2044.53186035
+epoch 3900, error=2485.55151367
+epoch 4000, error=1056.23706055
+epoch 4100, error=1292.80322266
+epoch 4200, error=1810.46972656
+epoch 4300, error=2600.45800781
+epoch 4400, error=2150.85522461
+epoch 4500, error=1214.70385742
+epoch 4600, error=1743.91821289
+epoch 4700, error=1734.86499023
+epoch 4800, error=1491.82434082
+epoch 4900, error=1442.07702637
+...Pickling final model
+Traceback (most recent call last):
+  File "bach_trainer.py", line 12, in <module>
+    pickle.dump(m.learned_config, f)
+NameError: name 'pickle' is not defined
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd out
+-bash: cd: out: No such file or directory
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ ls
+bach_composer.py                       main.pyc                 out_to_in_op.py
+bach_composer.py~                      midi_to_statematrix.py   out_to_in_op.pyc
+bach_trainer.py                        midi_to_statematrix.pyc  #python#
+bach_trainer.py~                       model.py                 readme.md
+cuda-repo-ubuntu1404_7.0-28_amd64.deb  model.pyc                setup1.sh
+data.py                                models                   setup2.sh
+data.pyc                               multi_training.py        setup_optional.sh
+LICENSE.txt                            multi_training.pyc       visualize.py
+__MACOSX                               music
+main.py                                output
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition$ cd output/
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ ls
+Bach_Comp1.mid  params200.p   params4500.p  sample1000.mid  sample300.mid   sample700.mid
+foo.txt         params2500.p  params500.p   sample100.mid   sample3500.mid  sample800.mid
+params0.p       params3000.p  params600.p   sample1500.mid  sample4000.mid  sample900.mid
+params1000.p    params300.p   params700.p   sample2000.mid  sample400.mid
+params100.p     params3500.p  params800.p   sample200.mid   sample4500.mid
+params1500.p    params4000.p  params900.p   sample2500.mid  sample500.mid
+params2000.p    params400.p   sample0.mid   sample3000.mid  sample600.mid
+ubuntu@ip-172-31-8-171:~/biaxial-rnn-music-composition/output$ 
