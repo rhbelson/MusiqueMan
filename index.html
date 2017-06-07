@@ -259,6 +259,11 @@
                     The perplexity and error of the final training epoch was (click <a href="BACH1_OUTPUT.rtf">here </a> to see complete training perplexity/error):
                     <code>epoch 4900, error=1442.07702637</code><br><br>
 
+                    In our first run on May 18th, we had 256 nodes. But in our second run (May 19th) we had 300 nodes. The following graph below, illustrating error over time (epoch number) shows both training errors graphed over time:<br>
+                    <img src="epoch2500graph.png" width="60%" align="middle" alt="">
+                    <br><br>
+
+
                     Bach 2.0: More Comprehensive Bach Dataset: As expected, this dataset ran significantly better than our first Bach dataset. This was due to changing the MIDI Format (see MIDI Formatting section) from 1 to 0, as well as almost doubling the amount of training examples given. We ran 153 Bach compositions, with MIDI note counts ranging from 312 notes to 2,930 notes, averaging at around 1,044 notes per file. As a result, the composition features a clear melodic line with a supporting accompaniment figure in Eb Major. This significantly more harmonically nuanced composition supported our earlier hypothesis that the RNN architecture prefers single track MIDI.<br><br>
 
                     <audio controls>
@@ -269,7 +274,7 @@
                     <code>epoch 9900, minute 24939121.4239, error=2092.07885742, perplexity=0.000772314505144</code><br><br>
 
 
-                    Code added: Daniel Johnson’s code proved to be fairly obtruse for us to manipulate. This is mainly because it was written in Theano. None of us are very familiar with this library and given the time constraints, we deemed it unwise to get to deep in the weeds. However, we did write some code to try to extract more data during the training process. Originally, only epoch and error were output every 100 epochs. We added more user feedback, including train time and perplexity. However, after graphing we decided that error was the best metric for visualization anyway. Krege wrote a parser that read the terminal outputs, collected the relevant data, and outputted it to a CSV(comma separated values) file so that it could be read by Microsoft Excel for visualization purposes.<br><br>
+                    Code added: Daniel Johnson’s code proved to be fairly abstruse for us to manipulate. This is mainly because it was written in Theano. None of us are very familiar with this library and given the time constraints, we deemed it unwise to get to deep in the weeds. However, we did write some code to try to extract more data during the training process. Originally, only epoch and error were output every 100 epochs. We added more user feedback, including train time and perplexity. However, after graphing we decided that error was the best metric for visualization anyway. Krege wrote a parser that read the terminal outputs, collected the relevant data, and outputted it to a CSV(comma separated values) file so that it could be read by Microsoft Excel for visualization purposes.<br><br>
 
                     The error of our output (For the Second Bach Dataset), graphed over time (epoch number) can be seen below:<br>
                     <img src="bach_graph.png" width="60%" align="middle" alt="">
